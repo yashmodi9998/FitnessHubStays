@@ -24,7 +24,9 @@ namespace FitnessHubStays.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<WorkoutSession> WorkoutSessions { get; set; }
+        public DbSet<Booking> Bookings { get; set; }    
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
