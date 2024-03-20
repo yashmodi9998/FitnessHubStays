@@ -187,28 +187,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202403162244194_tabl.cs" />
-    <Compile Include="Migrations\202403162244194_tabl.designer.cs">
-      <DependentUpon>202403162244194_tabl.cs</DependentUpon>
+    <Compile Include="Migrations\202403202107185_mig1.cs" />
+    <Compile Include="Migrations\202403202107185_mig1.designer.cs">
+      <DependentUpon>202403202107185_mig1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202403162247220_tabl1.cs" />
-    <Compile Include="Migrations\202403162247220_tabl1.designer.cs">
-      <DependentUpon>202403162247220_tabl1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202403162257156_tabl2.cs" />
-    <Compile Include="Migrations\202403162257156_tabl2.designer.cs">
-      <DependentUpon>202403162257156_tabl2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202403202031311_m1.cs" />
-    <Compile Include="Migrations\202403202031311_m1.designer.cs">
-      <DependentUpon>202403202031311_m1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202403202043003_m2.cs" />
-    <Compile Include="Migrations\202403202043003_m2.designer.cs">
-      <DependentUpon>202403202043003_m2.cs</DependentUpon>
+    <Compile Include="Migrations\202403202122514_mig11.cs" />
+    <Compile Include="Migrations\202403202122514_mig11.designer.cs">
+      <DependentUpon>202403202122514_mig11.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\BookingSession.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -321,20 +310,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202403162244194_tabl.resx">
-      <DependentUpon>202403162244194_tabl.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202403202107185_mig1.resx">
+      <DependentUpon>202403202107185_mig1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403162247220_tabl1.resx">
-      <DependentUpon>202403162247220_tabl1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403162257156_tabl2.resx">
-      <DependentUpon>202403162257156_tabl2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403202031311_m1.resx">
-      <DependentUpon>202403202031311_m1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403202043003_m2.resx">
-      <DependentUpon>202403202043003_m2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202403202122514_mig11.resx">
+      <DependentUpon>202403202122514_mig11.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

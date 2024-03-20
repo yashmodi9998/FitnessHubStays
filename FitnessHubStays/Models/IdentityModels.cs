@@ -25,7 +25,7 @@ namespace FitnessHubStays.Models
         {
         }
         public DbSet<Room> Rooms { get; set; }
-        public DbSet<WorkoutSession> WorkoutSessions { get; set; }
+        public DbSet<Activity> Activities{ get; set; }
         public DbSet<Booking> Bookings { get; set; }    
         public DbSet<BookingSession> BookingSessions { get; set; }    
         public static ApplicationDbContext Create()
