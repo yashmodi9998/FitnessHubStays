@@ -199,9 +199,18 @@
     <Compile Include="Migrations\202403162257156_tabl2.designer.cs">
       <DependentUpon>202403162257156_tabl2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202403202031311_m1.cs" />
+    <Compile Include="Migrations\202403202031311_m1.designer.cs">
+      <DependentUpon>202403202031311_m1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403202043003_m2.cs" />
+    <Compile Include="Migrations\202403202043003_m2.designer.cs">
+      <DependentUpon>202403202043003_m2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\BookingSession.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Room.cs" />
@@ -320,6 +329,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202403162257156_tabl2.resx">
       <DependentUpon>202403162257156_tabl2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403202031311_m1.resx">
+      <DependentUpon>202403202031311_m1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403202043003_m2.resx">
+      <DependentUpon>202403202043003_m2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
