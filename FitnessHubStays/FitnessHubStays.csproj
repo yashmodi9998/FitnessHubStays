@@ -184,16 +184,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\RoomDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202403202107185_mig1.cs" />
-    <Compile Include="Migrations\202403202107185_mig1.designer.cs">
-      <DependentUpon>202403202107185_mig1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202403202122514_mig11.cs" />
-    <Compile Include="Migrations\202403202122514_mig11.designer.cs">
-      <DependentUpon>202403202122514_mig11.cs</DependentUpon>
+    <Compile Include="Migrations\202403271930374_fitnesshubstays.cs" />
+    <Compile Include="Migrations\202403271930374_fitnesshubstays.designer.cs">
+      <DependentUpon>202403271930374_fitnesshubstays.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -203,7 +201,6 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Room.cs" />
-    <Compile Include="Models\WorkoutSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -278,6 +275,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Room\List.cshtml" />
+    <Content Include="Views\Room\Add.cshtml" />
+    <Content Include="Views\Room\View.cshtml" />
+    <Content Include="Views\Room\Edit.cshtml" />
+    <Content Include="Views\Room\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -310,11 +312,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202403202107185_mig1.resx">
-      <DependentUpon>202403202107185_mig1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403202122514_mig11.resx">
-      <DependentUpon>202403202122514_mig11.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202403271930374_fitnesshubstays.resx">
+      <DependentUpon>202403271930374_fitnesshubstays.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

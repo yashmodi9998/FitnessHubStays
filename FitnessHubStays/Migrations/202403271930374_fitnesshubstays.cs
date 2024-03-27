@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class mig1 : DbMigration
+    public partial class fitnesshubstays : DbMigration
     {
         public override void Up()
         {
@@ -116,8 +116,7 @@
                 .PrimaryKey(t => t.BookingSessionID)
                 .ForeignKey("dbo.Activities", t => t.ActivityID, cascadeDelete: true)
                 .ForeignKey("dbo.Bookings", t => t.BookingID, cascadeDelete: true)
-                .Index(t => t.BookingID)
-                .Index(t => t.ActivityID);
+                .Index(t => new { t.BookingID, t.ActivityID }, unique: true, name: "Booking Activity");
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -142,8 +141,7 @@
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Bookings", "RoomID", "dbo.Rooms");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.BookingSessions", new[] { "ActivityID" });
-            DropIndex("dbo.BookingSessions", new[] { "BookingID" });
+            DropIndex("dbo.BookingSessions", "Booking Activity");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });

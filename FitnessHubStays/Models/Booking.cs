@@ -17,9 +17,9 @@ namespace FitnessHubStays.Models
         public string UserID { get; set; }
         public virtual ApplicationUser User { get; set; }
         [Index("Booking", IsUnique = true, Order = 2)]
-        [ForeignKey("Rooms")]
+        [ForeignKey("Room")]
         public int RoomID { get; set; }
-        public virtual Room Rooms { get; set; }
+        public virtual Room Room { get; set; }
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }
         public decimal TotalAmount { get; set; }

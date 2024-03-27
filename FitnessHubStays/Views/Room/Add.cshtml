@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Add Room";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2>Add New Room</h2>
+        </div>
+        <div class="col-auto">
+            <a href="/Room/List" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Rooms</a>
+        </div>
+    </div>
+
+    <form action="/Room/Create" method="POST">
+        <div class="row">
+            <div class="col mb-3">
+                <label for="RoomNumber" class="form-label">Room Number:</label>
+                <input type="text" class="form-control" id="RoomNumber" name="RoomNumber" required aria-label="Room Number" />
+            </div>
+            <div class="col mb-3">
+                <label for="RoomType" class="form-label">Room Type:</label>
+                <select class="form-select" id="RoomType" name="RoomType" required aria-label="Room Type">
+                    <option value="Standard">Standard</option>
+                    <option value="Deluxe">Deluxe</option>
+                    <option value="Suite">Suite</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="RoomPrice" class="form-label">Room Price (per night):</label>
+                <input type="number" class="form-control" id="RoomPrice" name="RoomPrice" step="0.01" required aria-label="Room Price" />
+            </div>
+            <div class="col mb-3">
+                <label for="RoomStatus" class="form-label">Room Status:</label>
+                <select class="form-select" id="RoomStatus" name="RoomStatus" required aria-label="Room Status">
+                    <option value="Available">Available</option>
+                    <option value="Occupied">Occupied</option>
+                    <option value="Unavailable">Unavailable</option>
+                    <option value="Reserved">Reserved</option>
+                    <option value="Out of Service">Out of Service</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Room</button>
+    </form>
+</div>

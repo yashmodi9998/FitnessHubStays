@@ -1,0 +1,43 @@
+﻿@model IEnumerable<FitnessHubStays.Models.RoomDto>
+
+@{
+    ViewBag.Title = "Rooms";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2>Rooms</h2>
+        </div>
+        <div class="col mb-3 d-flex justify-content-end">
+            <a href="/Room/Add" class="btn btn-success">Add New Room</a>
+        </div>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Room Number</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var room in Model)
+            {
+                <tr>
+                    <td>@room.RoomNumber</td>
+                    <td>@room.RoomType</td>
+                    <td>$@room.RoomPrice</td>
+                    <td>@room.RoomStatus</td>
+                    <td>
+                        <a href="/Room/View/@room.RoomID" class="btn btn-primary" aria-label="View Room Details"><i class="bi bi-eye"></i> View</a>
+                        <a href="/Room/Edit/@room.RoomID" class="btn btn-warning" aria-label="Edit Room Details"><i class="bi bi-pencil"></i> Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

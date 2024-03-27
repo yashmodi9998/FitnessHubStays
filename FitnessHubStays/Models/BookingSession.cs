@@ -12,14 +12,14 @@ namespace FitnessHubStays.Models
         [Key]
         public int BookingSessionID {  get; set; }
         [Index("Booking Activity", IsUnique = true, Order = 1)]
-        [ForeignKey("Bookings")]
+        [ForeignKey("Booking")]
         public int BookingID { get; set; }
-        public virtual Booking Bookings { get; set; }
+        public virtual Booking Booking { get; set; }
 
         [Index("Booking Activity", IsUnique = true, Order = 2)]
-        [ForeignKey("Activities")]
+        [ForeignKey("Activity")]
         public int ActivityID { get; set; }
-        public virtual Activity Activities { get; set; }
+        public virtual Activity Activity { get; set; }
 
     }
 }
