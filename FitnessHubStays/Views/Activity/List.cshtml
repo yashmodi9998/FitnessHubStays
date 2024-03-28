@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FitnessHubStays.Models.ActivityDto>
+
+@{
+    ViewBag.Title = "Activities";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2>Activities</h2>
+        </div>
+        <div class="col mb-3 d-flex justify-content-end">
+            <a href="/Activity/Add" class="btn btn-success">Add New Activity</a>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Day</th>
+                <th>Duration</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var activity in Model)
+            {
+                <tr>
+                    <td>@activity.ActivityName</td>
+                    <td>@activity.ActivityDay</td>
+                    <td>@activity.ActivityDuration hours</td>
+                    <td>$@activity.ActivityPrice</td>
+                    <td>@activity.Status</td>
+                    <td>
+                        <a href="/Activity/View/@activity.ActivityID" class="btn btn-primary" aria-label="View Activity Details"><i class="bi bi-eye"></i> View</a>
+                        <a href="/Activity/Edit/@activity.ActivityID" class="btn btn-warning" aria-label="Edit Activity Details"><i class="bi bi-pencil"></i> Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        </table>
+</div>
+

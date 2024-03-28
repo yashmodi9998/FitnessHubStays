@@ -1,0 +1,28 @@
+﻿﻿@model FitnessHubStays.Models.ActivityDto
+
+@{
+    ViewBag.Title = "Activity Details";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2>Detail Of @Model.ActivityName Activity</h2>
+        </div>
+        <div class="col-auto">
+            <a href="/Activity/List" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Activities </a>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Activity Information</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Day Of Activity:</strong> @Model.ActivityDay</li>
+                <li class="list-group-item"><strong>Duration:</strong> @Model.ActivityDuration hours</li>
+                <li class="list-group-item"><strong>Price:</strong> $@Model.ActivityPrice </li>
+                <li class="list-group-item"><strong>Status:</strong> @Model.Status </li>
+            </ul>
+        </div>
+    </div>
+</div>

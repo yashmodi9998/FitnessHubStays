@@ -11,8 +11,19 @@ namespace FitnessHubStays.Models
         [Key]
         public int ActivityID { get; set; }
         public string ActivityName { get; set; }
-        public DateTime ActivityDate { get; set; }
+        public string ActivityDay { get; set; }
         public int ActivityDuration { get; set; }
         public decimal ActivityPrice { get; set; }
+        public string Status { get; set; }
+    }
+
+    public class ActivityDto
+    {
+        public int ActivityID { get; set; }
+        public string ActivityName { get; set; }
+        public string ActivityDay { get; set; }
+        public int ActivityDuration { get; set; }
+        public decimal ActivityPrice { get; set; }
+        public string Status { get; set; }
     }
 }

@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Add Activity";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2>Add New Activity</h2>
+        </div>
+        <div class="col-auto">
+            <a href="/Activity/List" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Activities</a>
+        </div>
+    </div>
+    <form action="/Activity/Create" method="POST">
+        <div class="row">
+            <div class="col mb-3">
+                <label for="ActivityName" class="form-label">Activity Name:</label>
+                <input type="text" class="form-control" id="ActivityName" name="ActivityName" required aria-label="Activity Name" />
+            </div>
+            <div class="col mb-3">
+                <label for="ActivityDay" class="form-label">Activity Day:</label>
+                <select class="form-select" id="ActivityDay" name="ActivityDay" required aria-label="Activity Day">
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="ActivityDuration" class="form-label">Activity Duration:</label>
+                <select class="form-select" id="ActivityDuration" name="ActivityDuration" required aria-label="Activity Duration">
+                    <option value=1>1 Hour</option>
+                    <option value=2>2 Hours</option>
+                    <option value=3>3 Hours</option>
+                    <option value=4>4 Hours</option>
+                </select>
+            </div>
+            <div class="col mb-3">
+                <label for="ActivityPrice" class="form-label">Activity Price:</label>
+                <input type="number" class="form-control" id="ActivityPrice" name="ActivityPrice" step="0.01" required aria-label="Activity Price" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="Status" class="form-label">Activity Status:</label>
+                <select class="form-select" id="Status" name="Status" required aria-label="Activity Status">
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Activity</button>
+    </form>
+</div>

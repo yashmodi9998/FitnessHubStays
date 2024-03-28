@@ -67,6 +67,7 @@ namespace FitnessHubStays.Controllers
                 return RedirectToAction("Error");
             }
         }
+
         public ActionResult Error()
         {
             return View();

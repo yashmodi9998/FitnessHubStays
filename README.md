@@ -16,6 +16,7 @@
 - Room
   - List | Add | View | Update ✅
 - Activity
+  - List | Add | View | Update ✅
 - User Authentication
 - Booking
 - Booking Session
