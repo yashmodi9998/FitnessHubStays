@@ -17,6 +17,7 @@
   - List | Add | View | Update ✅
 - Activity
   - List | Add | View | Update ✅
-- User Authentication
+- User Authentication ✅
+  - Custom fields for user table (First Name || Last Name ) ✅
 - Booking
 - Booking Session
