@@ -7,13 +7,13 @@ namespace FitnessHubStays.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class fitnesshubstays : IMigrationMetadata
+    public sealed partial class user : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(fitnesshubstays));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(user));
         
         string IMigrationMetadata.Id
         {
-            get { return "202403271930374_fitnesshubstays"; }
+            get { return "202403281950326_user"; }
         }
         
         string IMigrationMetadata.Source

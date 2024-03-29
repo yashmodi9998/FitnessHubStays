@@ -151,10 +151,17 @@ namespace FitnessHubStays.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,
+                    // added by YM on 28-05-2024 for adding fieds in Db.
+                    FirstName = model.FirstName, LastName = model.LastName
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    // added by YM on 29-05-2024 for adding by default user In a guest role.
+                    UserManager.AddToRole(user.Id, "Guest");
+                    
+                    
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

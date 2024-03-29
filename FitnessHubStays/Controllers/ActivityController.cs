@@ -21,6 +21,7 @@ namespace FitnessHubStays.Controllers
             client.BaseAddress = new Uri("https://localhost:44302/api/");
         }
 
+     //   [Authorize(Roles = "Guest,Admin")]
         // GET: Activity/List
         public ActionResult List()
         {

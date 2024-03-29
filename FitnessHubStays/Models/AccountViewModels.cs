@@ -64,6 +64,17 @@ namespace FitnessHubStays.Models
 
     public class RegisterViewModel
     {
+        //RegisterViewModel fields added as firstName and lastName by YM on 28-05-2024 for adding fieds in Db.
+        [Required]
+        [StringLength(100)]
+        [Display(Name = "FirstName")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        [Display(Name = "LastName")]
+        public string LastName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

@@ -191,17 +191,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202403271930374_fitnesshubstays.cs" />
-    <Compile Include="Migrations\202403271930374_fitnesshubstays.designer.cs">
-      <DependentUpon>202403271930374_fitnesshubstays.cs</DependentUpon>
+    <Compile Include="Migrations\202403281941189_mig1.cs" />
+    <Compile Include="Migrations\202403281941189_mig1.designer.cs">
+      <DependentUpon>202403281941189_mig1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202403272337491_UpdateActivityModel.cs" />
-    <Compile Include="Migrations\202403272337491_UpdateActivityModel.designer.cs">
-      <DependentUpon>202403272337491_UpdateActivityModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202403280355010_UpdateActivityModel1.cs" />
-    <Compile Include="Migrations\202403280355010_UpdateActivityModel1.designer.cs">
-      <DependentUpon>202403280355010_UpdateActivityModel1.cs</DependentUpon>
+    <Compile Include="Migrations\202403281950326_user.cs" />
+    <Compile Include="Migrations\202403281950326_user.designer.cs">
+      <DependentUpon>202403281950326_user.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -327,14 +323,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202403271930374_fitnesshubstays.resx">
-      <DependentUpon>202403271930374_fitnesshubstays.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202403281941189_mig1.resx">
+      <DependentUpon>202403281941189_mig1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403272337491_UpdateActivityModel.resx">
-      <DependentUpon>202403272337491_UpdateActivityModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403280355010_UpdateActivityModel1.resx">
-      <DependentUpon>202403280355010_UpdateActivityModel1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202403281950326_user.resx">
+      <DependentUpon>202403281950326_user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

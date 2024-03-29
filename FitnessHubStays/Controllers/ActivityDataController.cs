@@ -25,8 +25,10 @@ namespace FitnessHubStays.Controllers
         /// </returns>
 
         // GET: api/ActivityData/ListActivities
+        
         [HttpGet]
         [Route("api/ActivityData/ListActivities")]
+       
         public IEnumerable<ActivityDto> ListActivities()
         {
             List<Activity> Activities = db.Activities.ToList();
@@ -57,6 +59,7 @@ namespace FitnessHubStays.Controllers
         [ResponseType(typeof(Activity))]
         [HttpPost]
         [Route("api/ActivityData/AddActivity")]
+      
         public IHttpActionResult AddActivity(Activity activity)
         {
             if (!ModelState.IsValid)
