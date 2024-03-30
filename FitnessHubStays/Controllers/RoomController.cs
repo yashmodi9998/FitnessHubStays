@@ -141,5 +141,47 @@ namespace FitnessHubStays.Controllers
                 return RedirectToAction("Error");
             }
         }
+
+        // GET: Room/Delete/2
+        public ActionResult Delete(int id)
+        {
+            // Get Particular Room information
+
+            // objective: communicate with our room data api to retrieve one room
+            // curl https://localhost:44302/api/roomdata/findroom/{id}
+
+            string url = "roomdata/findroom/" + id;
+            HttpResponseMessage response = client.GetAsync(url).Result;
+
+            RoomDto selectRoom = response.Content.ReadAsAsync<RoomDto>().Result;
+
+            return View(selectRoom);
+        }
+
+        // POST: Room/Remove/2
+        [HttpPost]
+        public ActionResult Remove(int id)
+        {
+            try
+            {
+                string url = "roomdata/deleteroom/" + id;
+                HttpContent content = new StringContent("");
+                content.Headers.ContentType.MediaType = "application/json";
+                HttpResponseMessage response = client.PostAsync(url, content).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("List");
+                }
+                else
+                {
+                    return RedirectToAction("Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return View();
+            }
+        }
     }
 }

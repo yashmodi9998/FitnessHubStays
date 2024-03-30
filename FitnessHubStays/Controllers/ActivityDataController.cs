@@ -21,7 +21,7 @@ namespace FitnessHubStays.Controllers
         /// </summary>
         /// <returns>
         /// HEADER: 200 (OK)
-        /// CONTENT: All activites in the database, including their details such as activity name,activity day,activity duration, activity price.
+        /// CONTENT: All activites in the database, including their details such as activity name,activity start time and end time,activity duration, activity price.
         /// </returns>
 
         // GET: api/ActivityData/ListActivities
@@ -38,7 +38,8 @@ namespace FitnessHubStays.Controllers
             {
                 ActivityID = activity.ActivityID,
                 ActivityName = activity.ActivityName,
-                ActivityDay = activity.ActivityDay,
+                StartTime = activity.StartTime,
+                EndTime = activity.EndTime,
                 ActivityDuration = activity.ActivityDuration,
                 ActivityPrice = activity.ActivityPrice,
                 Status = activity.Status
@@ -62,13 +63,14 @@ namespace FitnessHubStays.Controllers
       
         public IHttpActionResult AddActivity(Activity activity)
         {
+            Debug.WriteLine(activity);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             db.Activities.Add(activity);
             db.SaveChanges();
-
+            
             return Ok();
         }
 
@@ -78,7 +80,7 @@ namespace FitnessHubStays.Controllers
         /// <param name="activityId">The ID of the activity to retrieve.</param>
         /// <returns>
         /// HEADER: 200 (OK)
-        /// CONTENT: The activity information including their details such as activity name,activity day,activity duration, activity price.
+        /// CONTENT: The activity information including their details such as activity name,activity start time and end time,activity duration, activity price.
         /// </returns>
 
         // GET: api/ActivityData/FindActivity/2
@@ -93,7 +95,8 @@ namespace FitnessHubStays.Controllers
             {
                 ActivityID = activity.ActivityID,
                 ActivityName = activity.ActivityName,
-                ActivityDay = activity.ActivityDay,
+                StartTime = activity.StartTime,
+                EndTime = activity.EndTime,
                 ActivityDuration = activity.ActivityDuration,
                 ActivityPrice = activity.ActivityPrice,
                 Status = activity.Status
@@ -137,7 +140,8 @@ namespace FitnessHubStays.Controllers
                 Debug.WriteLine("Fetch ID: " + id);
                 Debug.WriteLine("POST Parameter - Activity ID: " + activity.ActivityID);
                 Debug.WriteLine("POST Parameter - Activity Name: " + activity.ActivityName);
-                Debug.WriteLine("POST Parameter - Day Of Activity: " + activity.ActivityDay);
+                Debug.WriteLine("POST Parameter - Start time Of Activity: " + activity.StartTime);
+                Debug.WriteLine("POST Parameter - End time Of Activity: " + activity.EndTime);
                 Debug.WriteLine("POST Parameter - Duration Of Activity: " + activity.ActivityDuration);
                 Debug.WriteLine("POST Parameter - Activity Price: " + activity.ActivityPrice);
             }
@@ -169,6 +173,32 @@ namespace FitnessHubStays.Controllers
         private bool ActivityExists(int id)
         {
             return db.Activities.Count(e => e.ActivityID == id) > 0;
+        }
+
+        /// <summary>
+        /// Delete an activity from the system by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the activity to delete.</param>
+        /// <returns>
+        /// HEADER: 200 (OK) if the activity is deleted successfully.
+        /// HEADER: 404 (Not Found) if the activity with the given ID is not found.
+        /// </returns>
+
+        // POST: api/ActivityData/DeleteActivity/2
+        [ResponseType(typeof(Activity))]
+        [HttpPost]
+        [Route("api/ActivityData/DeleteActivity/{id}")]
+        public IHttpActionResult DeleteActivity(int id)
+        {
+            Activity activity = db.Activities.Find(id);
+            if (activity == null)
+            {
+                return NotFound();
+            }
+            db.Activities.Remove(activity);
+            db.SaveChanges();
+
+            return Ok();
         }
     }
 }

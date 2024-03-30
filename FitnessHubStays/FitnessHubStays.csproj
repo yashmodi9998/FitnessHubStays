@@ -191,19 +191,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202403281941189_mig1.cs" />
-    <Compile Include="Migrations\202403281941189_mig1.designer.cs">
-      <DependentUpon>202403281941189_mig1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202403281950326_user.cs" />
-    <Compile Include="Migrations\202403281950326_user.designer.cs">
-      <DependentUpon>202403281950326_user.cs</DependentUpon>
+    <Compile Include="Migrations\202403301941188_activitytabledatatypechange.cs" />
+    <Compile Include="Migrations\202403301941188_activitytabledatatypechange.designer.cs">
+      <DependentUpon>202403301941188_activitytabledatatypechange.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Booking.cs" />
-    <Compile Include="Models\BookingSession.cs" />
+    <Compile Include="Models\BookingActivity.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Room.cs" />
@@ -291,6 +287,8 @@
     <Content Include="Views\Activity\View.cshtml" />
     <Content Include="Views\Activity\Edit.cshtml" />
     <Content Include="Views\Activity\Error.cshtml" />
+    <Content Include="Views\Room\Delete.cshtml" />
+    <Content Include="Views\Activity\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -323,11 +321,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202403281941189_mig1.resx">
-      <DependentUpon>202403281941189_mig1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403281950326_user.resx">
-      <DependentUpon>202403281950326_user.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202403301941188_activitytabledatatypechange.resx">
+      <DependentUpon>202403301941188_activitytabledatatypechange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

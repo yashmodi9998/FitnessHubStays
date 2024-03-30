@@ -18,7 +18,8 @@
         <div class="card-body">
             <h5 class="card-title">Activity Information</h5>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Day Of Activity:</strong> @Model.ActivityDay</li>
+                <li class="list-group-item"><strong>Activity StartTime:</strong> @Model.StartTime.ToString("HH:mm")</li>
+                <li class="list-group-item"><strong>Activity EndTime:</strong> @Model.EndTime.ToString("HH:mm")</li>
                 <li class="list-group-item"><strong>Duration:</strong> @Model.ActivityDuration hours</li>
                 <li class="list-group-item"><strong>Price:</strong> $@Model.ActivityPrice </li>
                 <li class="list-group-item"><strong>Status:</strong> @Model.Status </li>

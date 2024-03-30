@@ -7,13 +7,13 @@ namespace FitnessHubStays.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class mig1 : IMigrationMetadata
+    public sealed partial class activitytabledatatypechange : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(mig1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(activitytabledatatypechange));
         
         string IMigrationMetadata.Id
         {
-            get { return "202403281941189_mig1"; }
+            get { return "202403301941188_activitytabledatatypechange"; }
         }
         
         string IMigrationMetadata.Source

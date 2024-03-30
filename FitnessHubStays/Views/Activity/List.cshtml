@@ -17,7 +17,8 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Day</th>
+                <th>Start Time</th>
+                <th>End Time</th>
                 <th>Duration</th>
                 <th>Price</th>
                 <th>Status</th>
@@ -29,17 +30,18 @@
             {
                 <tr>
                     <td>@activity.ActivityName</td>
-                    <td>@activity.ActivityDay</td>
+                    <td>@activity.StartTime.ToString("HH:mm")</td>
+                    <td>@activity.EndTime.ToString("HH:mm")</td>
                     <td>@activity.ActivityDuration hours</td>
                     <td>$@activity.ActivityPrice</td>
                     <td>@activity.Status</td>
                     <td>
                         <a href="/Activity/View/@activity.ActivityID" class="btn btn-primary" aria-label="View Activity Details"><i class="bi bi-eye"></i> View</a>
                         <a href="/Activity/Edit/@activity.ActivityID" class="btn btn-warning" aria-label="Edit Activity Details"><i class="bi bi-pencil"></i> Edit</a>
+                        <a href="/Activity/Delete/@activity.ActivityID" class="btn btn-danger" aria-label="Delete Activity Details"><i class="bi bi-trash"></i> Delete</a>
                     </td>
                 </tr>
             }
         </tbody>
         </table>
 </div>
-

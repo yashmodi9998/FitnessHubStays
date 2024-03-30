@@ -166,5 +166,31 @@ namespace FitnessHubStays.Controllers
         {
             return db.Rooms.Count(e => e.RoomID == id) > 0;
         }
+
+        /// <summary>
+        /// Delete a room from the system by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the room to delete.</param>
+        /// <returns>
+        /// HEADER: 200 (OK) if the room is deleted successfully.
+        /// HEADER: 404 (Not Found) if the room with the given ID is not found.
+        /// </returns>
+
+        // POST: api/RoomData/DeleteRoom/2
+        [ResponseType(typeof(Room))]
+        [HttpPost]
+        [Route("api/RoomData/DeleteRoom/{id}")]
+        public IHttpActionResult DeleteRoom(int id)
+        {
+            Room room = db.Rooms.Find(id);
+            if (room == null)
+            {
+                return NotFound();
+            }
+            db.Rooms.Remove(room);
+            db.SaveChanges();
+
+            return Ok();
+        }
     }
 }

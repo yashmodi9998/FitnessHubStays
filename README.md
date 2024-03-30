@@ -14,10 +14,11 @@
 ### Tasks to Do:
 
 - Room
-  - List | Add | View | Update ✅
+  - List | Add | View | Update | Delete ✅
 - Activity
-  - List | Add | View | Update ✅
+  - List | Add | View | Update | Delete ✅
+  - Changes Database Schema
 - User Authentication ✅
   - Custom fields for user table (First Name || Last Name ) ✅
 - Booking
-- Booking Session
+- Booking Activity

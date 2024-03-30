@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace FitnessHubStays.Models
 {
-    public class BookingSession
+    public class BookingActivity
     {
         [Key]
-        public int BookingSessionID {  get; set; }
+        public int BookingActivityID { get; set; }
         [Index("Booking Activity", IsUnique = true, Order = 1)]
         [ForeignKey("Booking")]
         public int BookingID { get; set; }

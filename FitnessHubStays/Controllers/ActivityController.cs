@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
@@ -21,7 +22,7 @@ namespace FitnessHubStays.Controllers
             client.BaseAddress = new Uri("https://localhost:44302/api/");
         }
 
-     //   [Authorize(Roles = "Guest,Admin")]
+        // [Authorize(Roles = "Guest,Admin")]
         // GET: Activity/List
         public ActionResult List()
         {
@@ -51,15 +52,20 @@ namespace FitnessHubStays.Controllers
             // objective: add a new activity into our system using the API
             // curl -H "Content-Type:application/json" -d @activity.json https://localhost:44302/api/activitydata/addactivity 
 
+            // Calculate Duration
+            TimeSpan duration = activity.EndTime - activity.StartTime;
+            activity.ActivityDuration = (int)duration.TotalHours;
+
             string url = "activitydata/addactivity";
             string jsonpayload = jss.Serialize(activity);
-
-            // Debug.WriteLine(jsonpayload);
+            Debug.WriteLine("+++++");
+            Debug.WriteLine(jsonpayload);
 
             HttpContent content = new StringContent(jsonpayload);
             content.Headers.ContentType.MediaType = "application/json";
 
             HttpResponseMessage response = client.PostAsync(url, content).Result;
+
             if (response.IsSuccessStatusCode)
             {
                 return RedirectToAction("List");
@@ -118,7 +124,8 @@ namespace FitnessHubStays.Controllers
             {
                 Debug.WriteLine("The activity information is: ");
                 Debug.WriteLine(activity.ActivityName);
-                Debug.WriteLine(activity.ActivityDay);
+                Debug.WriteLine(activity.StartTime);
+                Debug.WriteLine(activity.EndTime);
                 Debug.WriteLine(activity.ActivityDuration);
                 Debug.WriteLine(activity.ActivityPrice);
                 Debug.WriteLine(activity.Status);
@@ -127,6 +134,10 @@ namespace FitnessHubStays.Controllers
                 // Send the request to the API
                 // POST: api/activitydata/updateactivity/{id}
                 // Header : Content-Type: application/json
+
+                // Calculate Duration
+                TimeSpan duration = activity.EndTime - activity.StartTime;
+                activity.ActivityDuration = (int)duration.TotalHours;
 
                 string url = "activitydata/updateactivity/" + id;
                 string jsonpayload = jss.Serialize(activity);
@@ -142,6 +153,48 @@ namespace FitnessHubStays.Controllers
             {
                 Debug.WriteLine(ex.Message);
                 return RedirectToAction("Error");
+            }
+        }
+
+        // GET: Activity/Delete/2
+        public ActionResult Delete(int id)
+        {
+            // Get Particular Activity information
+
+            // objective: communicate with our activity data api to retrieve one activity
+            // curl https://localhost:44302/api/activitydata/findactivity/{id}
+
+            string url = "activitydata/findactivity/" + id;
+            HttpResponseMessage response = client.GetAsync(url).Result;
+
+            ActivityDto selectActivity = response.Content.ReadAsAsync<ActivityDto>().Result;
+
+            return View(selectActivity);
+        }
+
+        // POST: Activity/Remove/2
+        [HttpPost]
+        public ActionResult Remove(int id)
+        {
+            try
+            {
+                string url = "activitydata/deleteactivity/" + id;
+                HttpContent content = new StringContent("");
+                content.Headers.ContentType.MediaType = "application/json";
+                HttpResponseMessage response = client.PostAsync(url, content).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("List");
+                }
+                else
+                {
+                    return RedirectToAction("Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return View();
             }
         }
     }

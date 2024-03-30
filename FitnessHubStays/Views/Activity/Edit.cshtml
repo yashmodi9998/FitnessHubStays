@@ -9,7 +9,10 @@
             <h2>Update Activity</h2>
         </div>
         <div class="col-auto">
-            <a href="/Activity/List" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Activities</a>
+            <a href="/Activity/List" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Back To
+                Activities
+            </a>
         </div>
     </div>
 
@@ -18,42 +21,33 @@
         <div class="row">
             <div class="col mb-3">
                 <label for="ActivityName" class="form-label">Activity Name:</label>
-                <input type="text" class="form-control" id="ActivityName" name="ActivityName" value="@Model.ActivityName" required aria-label="Activity Name" />
+                <input type="text" class="form-control" id="ActivityName" name="ActivityName"
+                       value="@Model.ActivityName" required aria-label="Activity Name" />
             </div>
             <div class="col mb-3">
-                <label for="ActivityDay" class="form-label">Activity Day:</label>
-                <select class="form-select" id="ActivityDay" name="ActivityDay" required aria-label="Activity Day">
-                    <option value="Sunday" @(Model.ActivityDay == "Sunday" ? "selected" : "")>Sunday</option>
-                    <option value="Monday" @(Model.ActivityDay == "Monday" ? "selected" : "")>Monday</option>
-                    <option value="Tuesday" @(Model.ActivityDay == "Tuesday" ? "selected" : "")>Tuesday</option>
-                    <option value="Wednesday" @(Model.ActivityDay == "Wednesday" ? "selected" : "")>Wednesday</option>
-                    <option value="Thursday" @(Model.ActivityDay == "Thursday" ? "selected" : "")>Thursday</option>
-                    <option value="Friday" @(Model.ActivityDay == "Friday" ? "selected" : "")>Friday</option>
-                    <option value="Saturday" @(Model.ActivityDay == "Saturday" ? "selected" : "")>Saturday</option>
-                </select>
+                <label for="ActivityPrice" class="form-label">Activity Price:</label>
+                <input type="number" class="form-control" id="ActivityPrice" name="ActivityPrice"
+                       value="@Model.ActivityPrice" step="0.01" required aria-label="Activity Price" />
             </div>
         </div>
         <div class="row">
             <div class="col mb-3">
-                <label for="ActivityDuration" class="form-label">Activity Duration:</label>
-                <select class="form-select" id="ActivityDuration" name="ActivityDuration" required aria-label="Activity Duration">
-                    <option value=1 @(Model.ActivityDuration == 1 ? "selected" : "")>1 Hour</option>
-                    <option value=2 @(Model.ActivityDuration == 2 ? "selected" : "")>2 Hours</option>
-                    <option value=3 @(Model.ActivityDuration == 3 ? "selected" : "")>3 Hours</option>
-                    <option value=4 @(Model.ActivityDuration == 4 ? "selected" : "")>4 Hours</option>
-                </select>
+                <label for="StartTime" class="form-label">Start Time:</label>
+                <input type="time" class="form-control" id="StartTime" name="StartTime" required aria-label="Start Time"
+                       step="3600" placeholder="HH:00 AM/PM" value="@Model.StartTime.ToString("HH:mm")" />
             </div>
             <div class="col mb-3">
-                <label for="ActivityPrice" class="form-label">Activity Price:</label>
-                <input type="number" class="form-control" id="ActivityPrice" name="ActivityPrice" value="@Model.ActivityPrice" step="0.01" required aria-label="Activity Price" />
+                <label for="EndTime" class="form-label">End Time:</label>
+                <input type="time" class="form-control" id="EndTime" name="EndTime" required aria-label="End Time"
+                       step="3600" placeholder="HH:00 AM/PM" value="@Model.EndTime.ToString("HH:mm")" />
             </div>
         </div>
         <div class="row">
             <div class="col mb-3">
                 <label for="Status" class="form-label">Activity Status:</label>
                 <select class="form-select" id="Status" name="Status" required aria-label="Activity Status">
-                    <option value="Active" @(Model.Status == "Active" ? "selected" : "")>Active</option>
-                    <option value="Inactive" @(Model.Status == "Inactive" ? "selected" : "")>Inactive</option>
+                    <option value="Active" @(Model.Status == "Active" ? "selected" : "" )>Active</option>
+                    <option value="Inactive" @(Model.Status == "Inactive" ? "selected" : "" )>Inactive</option>
                 </select>
             </div>
         </div>
