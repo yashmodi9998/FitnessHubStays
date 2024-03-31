@@ -1,0 +1,28 @@
+﻿@model FitnessHubStays.Models.BookingDto
+
+@{
+    ViewBag.Title = "Booking Details";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2>Detail For The Booking Of Room No. @Model.RoomNumber</h2>
+        </div>
+        <div class="col-auto">
+            <a href="/Booking/List" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Bookings</a>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Booking Information</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Type of Room:</strong> @Model.RoomType</li>
+                <li class="list-group-item"><strong>Check In Date:</strong> @Model.CheckInDate.ToString("MMMM dd, yyyy HH:00")</li>
+                <li class="list-group-item"><strong>Check Out Date:</strong> @Model.CheckOutDate.ToString("MMMM dd, yyyy HH:00")</li>
+                <li class="list-group-item"><strong>Price:</strong> $@Model.TotalAmount</li>
+            </ul>
+        </div>
+    </div>
+</div>

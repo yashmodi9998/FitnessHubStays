@@ -21,4 +21,6 @@
 - User Authentication ✅
   - Custom fields for user table (First Name || Last Name ) ✅
 - Booking
+  - List | Add | View | Update | Delete ✅
+  - Note: In Insert and Update, We need login first if we don't login then we will fetch database error because of "USERID"
 - Booking Activity

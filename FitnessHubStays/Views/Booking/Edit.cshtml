@@ -1,0 +1,47 @@
+﻿@model FitnessHubStays.Models.ViewModels.EditBookingModel
+@{
+    ViewBag.Title = "Update Booking";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2>Update Booking</h2>
+        </div>
+        <div class="col-auto">
+            <a href="/Booking/List" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Bookings</a>
+        </div>
+    </div>
+    <form action="/Booking/Update/@Model.Booking.BookingID" method="POST">
+        <input type="hidden" id="BookingID" name="BookingID" value="@Model.Booking.BookingID" />
+        <input type="hidden" id="UserID" name="UserID" class="form-control" value="@ViewBag.UserId" />
+        <div class="row">
+            <div class="col mb-3">
+                <label for="RoomId" class="form-label">Room:</label>
+                <select class="form-select" id="RoomId" name="RoomId" required aria-label="Room Number">
+                    @foreach (var room in Model.Rooms)
+                    {
+                        <option value="@room.RoomID" @(Model.Booking.RoomID == room.RoomID ? "selected" : "") data-price="@room.RoomPrice">@room.RoomNumber</option>
+                    }
+                </select>
+            </div>
+            <div class="col mb-3">
+                <label for="TotalAmount" class="form-label">Total Amount:</label>
+                <input type="text" class="form-control" id="TotalAmount" name="TotalAmount" value="@Model.Booking.TotalAmount" readonly />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="CheckInDate" class="form-label">Check-In Date:</label>
+                <input type="datetime-local" class="form-control" id="CheckInDate" name="CheckInDate" value="@Model.Booking.CheckInDate.ToString("yyyy-MM-ddTHH:mm:ss")" required aria-label="Check In Date" step="3600" />
+            </div>
+            <div class="col mb-3">
+                <label for="CheckOutDate" class="form-label">Check-Out Date:</label>
+                <input type="datetime-local" class="form-control" id="CheckOutDate" name="CheckOutDate" value="@Model.Booking.CheckOutDate.ToString("yyyy-MM-ddTHH:mm:ss")" required aria-label="Check Out Date" step="3600" />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Booking</button>
+    </form>
+</div>
+
+<script src="~/Scripts/script.js"></script>

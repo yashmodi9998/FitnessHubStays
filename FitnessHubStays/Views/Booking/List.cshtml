@@ -1,0 +1,37 @@
+﻿@model IEnumerable<FitnessHubStays.Models.BookingDto>
+@{
+    ViewBag.Title = "Bookings";
+}
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2>Bookings</h2>
+        </div>
+        <div class="col mb-3 d-flex justify-content-end">
+            <a href="/Booking/Add" class="btn btn-success">Add New Booking</a>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var booking in Model)
+        {
+            <div class="col-4 mb-5">
+                <div class="card" style="width: 20rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@booking.RoomNumber</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@booking.UserEmail</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item px-0">Check In : @booking.CheckInDate.ToString("MMMM dd, yyyy HH:00") </li>
+                            <li class="list-group-item px-0">Check Out : @booking.CheckOutDate.ToString("MMMM dd, yyyy HH:00") </li>
+                            <li class="list-group-item px-0">Total Amount : $@booking.TotalAmount </li>
+                        </ul>
+                        <a href="/Booking/View/@booking.BookingID" class="card-link" aria-label="View Booking Details"><i class="bi bi-eye"></i>View</a>
+                        <a href="/Booking/Edit/@booking.BookingID" class="card-link" aria-label="Edit Booking Details"><i class="bi bi-pencil"></i>Edit</a>
+                        <a href="/Booking/Delete/@booking.BookingID" class="card-link" aria-label="Delete Booking Details"><i class="bi bi-trash"></i>Delete</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

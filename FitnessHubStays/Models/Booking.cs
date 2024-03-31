@@ -25,4 +25,17 @@ namespace FitnessHubStays.Models
         public decimal TotalAmount { get; set; }
        
     }
+
+    public class BookingDto
+    {
+        public int BookingID { get; set; }
+        public string UserID { get; set; }
+        public string UserEmail { get; set; }
+        public int RoomID { get; set; }
+        public string RoomNumber { get; set; }
+        public string RoomType { get; set; }
+        public DateTime CheckInDate { get; set;}
+        public DateTime CheckOutDate { get; set;}
+        public decimal TotalAmount { get; set; }
+    }
 }
