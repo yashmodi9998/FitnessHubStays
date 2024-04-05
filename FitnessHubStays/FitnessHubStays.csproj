@@ -184,6 +184,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\ActivityDataController.cs" />
+    <Compile Include="Controllers\BookingActivityController.cs" />
+    <Compile Include="Controllers\BookingActivityDataController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\BookingDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -193,9 +195,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202403301941188_activitytabledatatypechange.cs" />
-    <Compile Include="Migrations\202403301941188_activitytabledatatypechange.designer.cs">
-      <DependentUpon>202403301941188_activitytabledatatypechange.cs</DependentUpon>
+    <Compile Include="Migrations\202404032016177_newmig.cs" />
+    <Compile Include="Migrations\202404032016177_newmig.designer.cs">
+      <DependentUpon>202404032016177_newmig.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -205,7 +207,9 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\ViewModels\EditBookingActivityModel.cs" />
     <Compile Include="Models\ViewModels\EditBookingModel.cs" />
+    <Compile Include="Models\ViewModels\ViewBookingActivityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -299,6 +303,12 @@
     <Content Include="Views\Booking\Delete.cshtml" />
     <Content Include="Views\Booking\Error.cshtml" />
     <Content Include="Views\Booking\View.cshtml" />
+    <Content Include="Views\BookingActivity\List.cshtml" />
+    <Content Include="Views\BookingActivity\Add.cshtml" />
+    <Content Include="Views\BookingActivity\Edit.cshtml" />
+    <Content Include="Views\BookingActivity\View.cshtml" />
+    <Content Include="Views\BookingActivity\Delete.cshtml" />
+    <Content Include="Views\BookingActivity\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -331,8 +341,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202403301941188_activitytabledatatypechange.resx">
-      <DependentUpon>202403301941188_activitytabledatatypechange.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202404032016177_newmig.resx">
+      <DependentUpon>202404032016177_newmig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

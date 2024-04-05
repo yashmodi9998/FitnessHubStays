@@ -22,4 +22,20 @@ namespace FitnessHubStays.Models
         public virtual Activity Activity { get; set; }
 
     }
-}
+    public class BookingActivityDto
+    { 
+        public int BookingActivityID { get; set; }
+        public int BookingID { get; set; }
+        public decimal TotalAmount { get;set; }
+
+        public int ActivityID { get; set; }
+        public string ActivityName { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public int ActivityDuration { get; set; }
+        public decimal ActivityPrice { get; set; }
+
+
+    }
+
+    }

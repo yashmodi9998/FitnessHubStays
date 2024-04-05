@@ -1,0 +1,27 @@
+﻿﻿@model FitnessHubStays.Models.BookingActivityDto
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-center">Are you sure you want to delete the booking activity.</h2>
+        </div>
+    </div>
+
+    <form method="POST" action="/BookingActivity/Remove/@Model.BookingActivityID">
+        <div class="mt-3 d-flex align-items-center justify-content-end gap-2">
+            <div>
+                <input type="hidden" class="form-control" id="BookingID" name="BookingID" value="@Model.BookingID" />
+                <input type="hidden" class="form-control" id="TotalAmount" name="TotalAmount" value="@Model.TotalAmount" />
+                <input type="hidden" id="ActivityPrice" name="ActivityPrice"  value="@Model.ActivityPrice" /> 
+                <button type="submit" class="btn btn-danger btn-lg btn-block">Delete</button>
+            </div>
+            <div>
+                <a href="/Booking/View/@Model.BookingID" class="btn btn-secondary btn-lg btn-block">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+

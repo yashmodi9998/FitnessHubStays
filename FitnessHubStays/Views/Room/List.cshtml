@@ -2,16 +2,32 @@
 
 @{
     ViewBag.Title = "Rooms";
+    bool isAdmin = User.IsInRole("Admin");
 }
 
 <div class="container mt-5">
     <div class="row">
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="col">
+                <h2> Welcome, @User.Identity.Name! </h2>
+            </div>
+        }
+    
+        </div>
+    <div class="row">
         <div class="col">
-            <h2>Rooms</h2>
+            <h3>Rooms</h3>
         </div>
-        <div class="col mb-3 d-flex justify-content-end">
-            <a href="/Room/Add" class="btn btn-success">Add New Room</a>
-        </div>
+        @if (isAdmin)
+        {
+
+            <div class="col mb-3 d-flex justify-content-end">
+                <a href="/Room/Add" class="btn btn-success">Add New Room</a>
+            </div>
+        }
+
     </div>
 
     <table class="table table-bordered">
@@ -34,8 +50,11 @@
                     <td>@room.RoomStatus</td>
                     <td>
                         <a href="/Room/View/@room.RoomID" class="btn btn-primary" aria-label="View Room Details"><i class="bi bi-eye"></i> View</a>
+                        @if (isAdmin)
+                        {
                         <a href="/Room/Edit/@room.RoomID" class="btn btn-warning" aria-label="Edit Room Details"><i class="bi bi-pencil"></i> Edit</a>
                         <a href="/Room/Delete/@room.RoomID" class="btn btn-danger" aria-label="Delete Room Details"><i class="bi bi-trash"></i> Delete</a>
+                        }
                     </td>
                 </tr>
             }

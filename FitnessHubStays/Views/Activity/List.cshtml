@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Activities";
+    bool isAdmin = User.IsInRole("Admin");
 }
 
 <div class="container mt-5">
@@ -9,9 +10,12 @@
         <div class="col">
             <h2>Activities</h2>
         </div>
+        @if (isAdmin)
+        {
         <div class="col mb-3 d-flex justify-content-end">
             <a href="/Activity/Add" class="btn btn-success">Add New Activity</a>
         </div>
+        }
     </div>
     <table class="table table-bordered">
         <thead>
@@ -37,8 +41,11 @@
                     <td>@activity.Status</td>
                     <td>
                         <a href="/Activity/View/@activity.ActivityID" class="btn btn-primary" aria-label="View Activity Details"><i class="bi bi-eye"></i> View</a>
+                        @if (isAdmin)
+                        {
                         <a href="/Activity/Edit/@activity.ActivityID" class="btn btn-warning" aria-label="Edit Activity Details"><i class="bi bi-pencil"></i> Edit</a>
                         <a href="/Activity/Delete/@activity.ActivityID" class="btn btn-danger" aria-label="Delete Activity Details"><i class="bi bi-trash"></i> Delete</a>
+                        }
                     </td>
                 </tr>
             }

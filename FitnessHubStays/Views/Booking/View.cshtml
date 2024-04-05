@@ -1,28 +1,76 @@
-﻿@model FitnessHubStays.Models.BookingDto
+﻿@model FitnessHubStays.Models.ViewModels.ViewBookingActivityModel
+   
 
 @{
     ViewBag.Title = "Booking Details";
 }
 
+
 <div class="container mt-5">
     <div class="row">
         <div class="col">
-            <h2>Detail For The Booking Of Room No. @Model.RoomNumber</h2>
+            <h2>Detail For The Booking Of Room No. @Model.Booking.RoomNumber</h2>
         </div>
+
         <div class="col-auto">
             <a href="/Booking/List" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Bookings</a>
         </div>
     </div>
 
+
+
     <div class="card mt-4">
         <div class="card-body">
             <h5 class="card-title">Booking Information</h5>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Type of Room:</strong> @Model.RoomType</li>
-                <li class="list-group-item"><strong>Check In Date:</strong> @Model.CheckInDate.ToString("MMMM dd, yyyy HH:00")</li>
-                <li class="list-group-item"><strong>Check Out Date:</strong> @Model.CheckOutDate.ToString("MMMM dd, yyyy HH:00")</li>
-                <li class="list-group-item"><strong>Price:</strong> $@Model.TotalAmount</li>
+                <li class="list-group-item"><strong>Type of Room:</strong> @Model.Booking.RoomType</li>
+                <li class="list-group-item"><strong>Check In Date:</strong> @Model.Booking.CheckInDate.ToString("MMMM dd, yyyy HH:00")</li>
+                <li class="list-group-item"><strong>Check Out Date:</strong> @Model.Booking.CheckOutDate.ToString("MMMM dd, yyyy HH:00")</li>
+                <li class="list-group-item"><strong>Price:</strong> $@Model.Booking.TotalAmount</li>
             </ul>
         </div>
     </div>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Activities Information</h5>
+            @if (Model.BookingActivity != null && Model.BookingActivity.Any())
+            {
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Duration</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var bookingactivity in Model.BookingActivity)
+                        {
+                            <tr>
+                                <td>@bookingactivity.ActivityName</td>
+                                <td>@bookingactivity.ActivityDuration</td>
+                                <td>@bookingactivity.ActivityPrice</td>
+
+                                <td>
+                                    <a href="/Activity/View/@bookingactivity.ActivityID" class="btn btn-primary" aria-label="View Activity Details"><i class="bi bi-eye"></i> View</a>
+                                    <a href="/BookingActivity/Edit/@bookingactivity.BookingActivityID" class="btn btn-warning" aria-label="Edit Activity Details"><i class="bi bi-pencil"></i> Edit</a>
+                                    <a href="/BookingActivity/Delete/@bookingactivity.BookingActivityID" class="btn btn-danger" aria-label="Delete Activity Details"><i class="bi bi-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No activities associated with this booking.</p>
+            }     <form action="/BookingActivity/Add" method="get">
+                <input type="hidden" id="BookingID" name="BookingID" class="form-control" value="@Model.Booking.BookingID" />
+                <button type="submit" class="btn btn-primary">Add Activity</button>
+            </form>
+
+        </div>
+    </div>
 </div>
+

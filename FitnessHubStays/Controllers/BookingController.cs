@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using System.Web.Security;
 
 namespace FitnessHubStays.Controllers
 {
@@ -66,19 +67,30 @@ namespace FitnessHubStays.Controllers
             // objective: communicate with booking data api to retrieve one booking
             // curl https://localhost:44302/api/bookingdata/findbooking/{id}
 
-            string url = "bookingdata/findbooking/" + id;
-            HttpResponseMessage response = client.GetAsync(url).Result;
+            // Fetch booking details
+            string bookingUrl = "bookingdata/findbooking/" + id;
+            HttpResponseMessage bookingResponse = client.GetAsync(bookingUrl).Result;
+            BookingDto selectBooking = bookingResponse.Content.ReadAsAsync<BookingDto>().Result;
 
-            BookingDto selectBooking = response.Content.ReadAsAsync<BookingDto>().Result;
+            // Fetch booking activities
+            string bookingActivityUrl = "BookingActivity/FindBookedActivityFromBooking/" + id;
+            HttpResponseMessage bookingActivityResponse = client.GetAsync(bookingActivityUrl).Result;
+            IEnumerable<BookingActivityDto> bookingActivities = bookingActivityResponse.Content.ReadAsAsync<IEnumerable<BookingActivityDto>>().Result;
 
-            return View(selectBooking);
+            var viewModel = new ViewBookingActivityModel
+            {
+                Booking = selectBooking,
+                BookingActivity = bookingActivities
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult Error()
         {
             return View();
         }
-
+         [Authorize(Roles = "Guest,Admin")]
         // GET: Booking/Add
         public ActionResult Add()
         {
@@ -216,6 +228,7 @@ namespace FitnessHubStays.Controllers
                 HttpContent content = new StringContent("");
                 content.Headers.ContentType.MediaType = "application/json";
                 HttpResponseMessage response = client.PostAsync(url, content).Result;
+                Debug.WriteLine("Resp--------"+response);
                 if (response.IsSuccessStatusCode)
                 {
                     return RedirectToAction("List");

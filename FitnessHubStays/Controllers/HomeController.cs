@@ -10,16 +10,14 @@ namespace FitnessHubStays.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return Redirect("Room/List");
         }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description pae.";
 
             return View();
         }
-
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

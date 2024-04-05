@@ -1,0 +1,81 @@
+﻿@model IEnumerable<FitnessHubStays.Models.ActivityDto>
+@{
+    ViewBag.Title = "Add Activity";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2>Add New Booking</h2>
+        </div>
+        <div class="col-auto">
+            <a href="/Booking/View/@ViewBag.BookingId" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Bookings</a>
+        </div>
+    </div>
+    <form id="bookingForm" action="/BookingActivity/Create" method="POST">
+        <input type="hidden" class="form-control" id="BookingID" name="BookingID" value="@ViewBag.BookingId" />
+        <input type="hidden" id="ActivityPrice" name="ActivityPrice" /> <!-- Hidden input field for activity price -->
+        <div class="row">
+            <div class="col mb-3">
+                <label for="ActivityID" class="form-label">Activity:</label>
+                <select class="form-select" id="ActivityID" name="ActivityID" required aria-label="Activity">
+                    <option value="">-- Select an activity --</option>
+                    @foreach (var activity in Model)
+                    {
+                        <option value="@activity.ActivityID" data-price="@activity.ActivityPrice">@activity.ActivityName</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col mb-3">
+                <h5>Selected Activity Details</h5>
+                <div id="activityDetails">
+                    <!-- Selected activity details will be displayed here -->
+                </div>
+            </div>
+        </div>
+
+        <button type="button" id="submitBtn" class="btn btn-primary">Add Booking</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById("submitBtn").addEventListener("click", function () {
+        var activityDropdown = document.getElementById("ActivityID");
+        var selectedActivityIndex = activityDropdown.selectedIndex;
+        if (selectedActivityIndex === 0) {
+            alert("Please select an activity.");
+            return;
+        }
+
+        // Get the selected activity details
+        var selectedActivityPrice = parseFloat(activityDropdown.options[selectedActivityIndex].getAttribute("data-price"));
+
+        // Set the selected activity price in the hidden input field
+        document.getElementById("ActivityPrice").value = selectedActivityPrice.toFixed(2);
+
+        // Submit the form
+        document.getElementById("bookingForm").submit();
+    });
+
+    document.getElementById("ActivityID").addEventListener("change", function () {
+        var activityDropdown = document.getElementById("ActivityID");
+        var selectedActivityIndex = activityDropdown.selectedIndex;
+        if (selectedActivityIndex === 0) {
+            // If the empty default option is selected, clear the activity details
+            document.getElementById("activityDetails").innerHTML = "";
+            return;
+        }
+
+        // Display the selected activity details
+        var selectedActivity = activityDropdown.options[selectedActivityIndex].text;
+        var selectedActivityPrice = parseFloat(activityDropdown.options[selectedActivityIndex].getAttribute("data-price"));
+        var activityDetailsDiv = document.getElementById("activityDetails");
+        activityDetailsDiv.innerHTML = `
+            <p><strong>Activity Name:</strong> ${selectedActivity}</p>
+            <p><strong>Price:</strong> $${selectedActivityPrice.toFixed(2)}</p>
+        `;
+    });
+</script>

@@ -9,9 +9,12 @@
         <div class="col">
             <h2>Bookings</h2>
         </div>
-        <div class="col mb-3 d-flex justify-content-end">
-            <a href="/Booking/Add" class="btn btn-success">Add New Booking</a>
-        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="col mb-3 d-flex justify-content-end">
+                <a href="/Booking/Add" class="btn btn-success">Add New Booking</a>
+            </div>
+        }
     </div>
     <div class="row">
         @foreach (var booking in Model)
