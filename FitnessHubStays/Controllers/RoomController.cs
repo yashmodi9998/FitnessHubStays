@@ -34,13 +34,15 @@ namespace FitnessHubStays.Controllers
 
             return View(rooms);
         }
-
+        //only admin can add new room
+        [Authorize(Roles = "Admin")]
         // GET: Room/Add
         public ActionResult Add()
         {
             return View();
         }
-
+        //only admin can add new room
+        [Authorize(Roles = "Admin")]
         // POST: Room/Create
         [HttpPost]
         public ActionResult Create(Room room) {
@@ -91,7 +93,8 @@ namespace FitnessHubStays.Controllers
 
             return View(selectRoom);
         }
-
+        //only admin can update room
+        [Authorize(Roles = "Admin")]
         // GET: Room/Edit/2
         public ActionResult Edit(int id)
         {
@@ -107,7 +110,8 @@ namespace FitnessHubStays.Controllers
 
             return View(selectRoom);
         }
-
+        //only admin can update room
+        [Authorize(Roles = "Admin")]
         // POST: Room/Update/2
         [HttpPost]
         public ActionResult Update(int id, Room room)
@@ -141,7 +145,8 @@ namespace FitnessHubStays.Controllers
                 return RedirectToAction("Error");
             }
         }
-
+        //only admin can delete room
+        [Authorize(Roles = "Admin")]
         // GET: Room/Delete/2
         public ActionResult Delete(int id)
         {
@@ -157,7 +162,8 @@ namespace FitnessHubStays.Controllers
 
             return View(selectRoom);
         }
-
+        //only admin can delete room
+        [Authorize(Roles = "Admin")]
         // POST: Room/Remove/2
         [HttpPost]
         public ActionResult Remove(int id)

@@ -33,6 +33,8 @@ namespace FitnessHubStays.Controllers
         {
             return View();
         }
+        //only authorised user can view booked activity
+        [Authorize(Roles = "Guest,Admin")]
         public ActionResult List()
         {
             // objective: communicate with booking activity data api to retrieve a list of bookings activity
@@ -47,7 +49,8 @@ namespace FitnessHubStays.Controllers
 
             return View(bookingactivity);
         }
-
+        //only authorised user can view perticular booked activity
+        [Authorize(Roles = "Guest,Admin")]
         // GET: BookingActivity/View/2
         public ActionResult View(int id)
         {
@@ -61,7 +64,8 @@ namespace FitnessHubStays.Controllers
 
             return View(bookingactivity);
         }
-
+        //only authorised user can add new activity for booking
+        [Authorize(Roles = "Guest,Admin")]
         // GET: BookingActivity/Add
         public ActionResult Add()
         {
@@ -72,7 +76,8 @@ namespace FitnessHubStays.Controllers
             return View(activityDtos);
         }
 
-
+        //only authorised user can add new activity for booking
+        [Authorize(Roles = "Guest,Admin")]
         // POST: BookingActivity/Create
         [HttpPost]
         public ActionResult Create(BookingActivity bookingactivity)
@@ -148,6 +153,8 @@ namespace FitnessHubStays.Controllers
             }
         }
 
+        //only authorised user can chnage activity for booking
+        [Authorize(Roles = "Guest,Admin")]
         // GET: BookingActivity/Edit/2
         public ActionResult Edit(int id)
         {
@@ -176,6 +183,8 @@ namespace FitnessHubStays.Controllers
             return View(viewModel);
         }
 
+        //only authorised user can change activity for booking
+        [Authorize(Roles = "Guest,Admin")]
         // POST: BookingActivity/Update/2
         [HttpPost]
         public ActionResult Update(int id, BookingActivity bookingActivity)
@@ -208,7 +217,8 @@ namespace FitnessHubStays.Controllers
             }
 
         }
-
+        //only authorised user can delete activity from booking
+        [Authorize(Roles = "Guest,Admin")]
         // GET: BookingActivity/Delete/2
         public ActionResult Delete(int id)
         {
@@ -223,7 +233,8 @@ namespace FitnessHubStays.Controllers
 
             return View(bookingActivityDto);
         }
-
+        //only authorised user can delete activity from booking
+        [Authorize(Roles = "Guest,Admin")]
         // POST: BookingActivity/Remove/2
         [HttpPost]
         public ActionResult Remove(int id)

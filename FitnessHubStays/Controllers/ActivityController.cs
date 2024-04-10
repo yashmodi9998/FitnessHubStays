@@ -22,7 +22,6 @@ namespace FitnessHubStays.Controllers
             client.BaseAddress = new Uri("https://localhost:44302/api/");
         }
 
-        // [Authorize(Roles = "Guest,Admin")]
         // GET: Activity/List
         public ActionResult List()
         {
@@ -37,12 +36,16 @@ namespace FitnessHubStays.Controllers
             return View(activities);
         }
 
+
+        //only admin can add new activity
+        [Authorize(Roles = "Admin")]
         // GET: Activity/Add
         public ActionResult Add()
         {
             return View();
         }
-
+        //only admin can add new activity
+        [Authorize(Roles = "Admin")]
         // POST: Activity/Create
         [HttpPost]
         public ActionResult Create(Activity activity)
@@ -99,7 +102,8 @@ namespace FitnessHubStays.Controllers
 
             return View(selectActivity);
         }
-
+        // Only admin can update activity
+        [Authorize(Roles = "Admin")]
         // GET: Activity/Edit/2
         public ActionResult Edit(int id)
         {
@@ -115,7 +119,8 @@ namespace FitnessHubStays.Controllers
 
             return View(selectActivity);
         }
-
+        // Only admin can update activity
+        [Authorize(Roles = "Admin")]
         // POST: Activity/Update/2
         [HttpPost]
         public ActionResult Update(int id, Activity activity)
@@ -155,7 +160,8 @@ namespace FitnessHubStays.Controllers
                 return RedirectToAction("Error");
             }
         }
-
+        // Only admin can delete activity
+        [Authorize(Roles = "Admin")]
         // GET: Activity/Delete/2
         public ActionResult Delete(int id)
         {
@@ -174,6 +180,7 @@ namespace FitnessHubStays.Controllers
 
         // POST: Activity/Remove/2
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Remove(int id)
         {
             try
