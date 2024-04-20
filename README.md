@@ -90,6 +90,14 @@ To run this project locally, follow these steps:
 - **HttpClient**: Library for making HTTP requests to the API.
 - **JavaScriptSerializer**: Utility for serializing and deserializing JSON data.
 
+## Images
+![Activities](images/Activities.jpg)
+![Add Activity](images/AddActivity.jpg)
+![Booking Activity](images/BookingActivity.jpg)
+![Bookings](images/Bookings.jpg)
+![Home](images/Home.jpg)
+![ViewBookings](images/ViewBookings.jpg)
+
 ## C# ASP.NET WebAPI Project Notes:
 
 - Clone the project repository.
